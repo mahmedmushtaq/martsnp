@@ -1,129 +1,93 @@
-@extends('layouts.app')
+@extends("layouts.app")
 
-@section('content')
-    @yield('dashboard')
-    <div class="row">
-        <!-- column -->
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <!-- title -->
-                    <div class="d-md-flex align-items-center">
-                        <div>
-                            <h4 class="card-title">Top Selling Products</h4>
-                            <h5 class="card-subtitle">Overview of Top Selling Items</h5>
-                        </div>
-                        <div class="ml-auto">
-                            <div class="dl">
-                                <select class="custom-select">
-                                    <option value="0" selected>Monthly</option>
-                                    <option value="1">Daily</option>
-                                    <option value="2">Weekly</option>
-                                    <option value="3">Yearly</option>
-                                </select>
-                            </div>
-                        </div>
+@section("content")
+    <div class="card">
+        <div class="card-header font-24 text-danger">
+            martSNP
+        </div>
+        <div class="card-body">
+
+
+
+
+            <div class="d-flex justify-content-around flex-wrap" >
+
+
+                @if(auth()->user()->account_type === 'seller')
+
+            <a href="{{route("stores.index")}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                <div class="icon">
+                    <img src="https://img.icons8.com/dusk/128/000000/online-store.png"/>
+                </div>
+                 <h5 href="{{route("stores.index")}}" class="text-success">My Store</h5>
+
+            </a>
+
+
+                <a href="{{route("products.index")}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                    <div class="icon">
+                        <img src="https://img.icons8.com/flat_round/128/000000/add-tag--v1.png"/>
                     </div>
-                    <!-- title -->
-                </div>
-                <div class="table-responsive">
-                    <table class="table v-middle">
-                        <thead>
-                        <tr class="bg-light">
-                            <th class="border-top-0">Products</th>
-                            <th class="border-top-0">License</th>
-                            <th class="border-top-0">Support Agent</th>
-                            <th class="border-top-0">Technology</th>
-                            <th class="border-top-0">Tickets</th>
-                            <th class="border-top-0">Sales</th>
-                            <th class="border-top-0">Earnings</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="m-r-10"><a class="btn btn-circle btn-info text-white">EA</a></div>
-                                    <div class="">
-                                        <h4 class="m-b-0 font-16">Elite Admin</h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>Single Use</td>
-                            <td>John Doe</td>
-                            <td>
-                                <label class="label label-danger">Angular</label>
-                            </td>
-                            <td>46</td>
-                            <td>356</td>
-                            <td>
-                                <h5 class="m-b-0">$2850.06</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="m-r-10"><a class="btn btn-circle btn-orange text-white">MA</a></div>
-                                    <div class="">
-                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>Single Use</td>
-                            <td>Venessa Fern</td>
-                            <td>
-                                <label class="label label-info">Vue Js</label>
-                            </td>
-                            <td>46</td>
-                            <td>356</td>
-                            <td>
-                                <h5 class="m-b-0">$2850.06</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="m-r-10"><a class="btn btn-circle btn-success text-white">MP</a></div>
-                                    <div class="">
-                                        <h4 class="m-b-0 font-16">Material Pro Admin</h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>Single Use</td>
-                            <td>John Doe</td>
-                            <td>
-                                <label class="label label-success">Bootstrap</label>
-                            </td>
-                            <td>46</td>
-                            <td>356</td>
-                            <td>
-                                <h5 class="m-b-0">$2850.06</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="m-r-10"><a class="btn btn-circle btn-purple text-white">AA</a></div>
-                                    <div class="">
-                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>Single Use</td>
-                            <td>John Doe</td>
-                            <td>
-                                <label class="label label-purple">React</label>
-                            </td>
-                            <td>46</td>
-                            <td>356</td>
-                            <td>
-                                <h5 class="m-b-0">$2850.06</h5>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <h5   class="text-success">My Products</h5>
+
+                </a>
+
+
+                <a href="{{route('orders.myorders')}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                    <div class="icon">
+                        <img src="https://img.icons8.com/nolan/128/order-history.png"/>
+                    </div>
+                    <h5   class="text-success">New Orders</h5>
+
+                </a>
+
+
+
+                @else
+
+                <form action="{{route('seller.store')}}" method="POST">
+                   @csrf
+
+                <button type="submit"   class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;background:transparent;border: none;">
+                        <div class="icon">
+                            <img src="https://img.icons8.com/color/128/000000/reseller.png"/>
+                        </div>
+                    <h5   class="text-success">Become A Seller</h5>
+
+                </button>
+
+                </form>
+
+
+
+              @endif
+
+                    <a  href="{{route('orders.index')}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                        <div class="icon">
+                            <img src="https://img.icons8.com/dusk/128/000000/payment-history.png"/>
+                        </div>
+                        <h5   class="text-success">Your History</h5>
+
+                    </a>
+
+
+                    <a  href="{{route("home")}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                        <div class="icon">
+                            <img   src="https://img.icons8.com/dusk/128/000000/front-sorting.png"/>
+                        </div>
+                        <h5   class="text-success">Back to front page</h5>
+
+                    </a>
+
+
+
+
             </div>
+
+
+
+
         </div>
     </div>
+
 @endsection
