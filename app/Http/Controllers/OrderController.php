@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewOrderNotification;
+use App\Notifications\OrderConfirmed;
 use App\Order;
 use App\Product;
 use App\Store;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +23,12 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $history = Order::where("ordered_by","=",Auth::user()->id)->simplePaginate(12);
+
+
+       //
+     // dd($check);
+
+        $history = Order::where("ordered_by","=",Auth::user()->id)->orderBy("id","DESC")->simplePaginate(12);
 
 
         return view("dashboard.history",[
@@ -61,6 +69,20 @@ class OrderController extends Controller
                  'ordered_by'=>Auth::user()->id,
                   'confirmed'=>'no'
             ]);
+
+
+
+
+
+
+            // $cart id is product id;
+
+          $product = Product::where("id","=",$cart->id)->firstOrFail();
+         $receiver = $product->user;
+
+       $receiver->notify(new NewOrderNotification($product));
+
+
         }
 
         ShoppingCart::clean();
@@ -131,7 +153,7 @@ class OrderController extends Controller
 //          if(sizeof($orderId) > 0)
 //             array_push($ordersArray,$orderId);
 //       }
-        $ordersArray = Order::whereIn("store_id",$storesIdArray)->simplePaginate(12);
+        $ordersArray = Order::whereIn("store_id",$storesIdArray)->orderBy("id","DESC")->simplePaginate(12);
 //        $ordersArray =  \App\Order::whereHas("stores",function($q) use ($storesIdArray){
 //            $q->whereIn('store_id',$storesIdArray);
 //        });
@@ -147,6 +169,15 @@ class OrderController extends Controller
     public function confirmedOrder(Order $order){
         $order->confirmed = 'yes';
         $order->save();
+
+        $user = $order->user;
+        $storeName = $order->store->name;
+       // dd($storeName);
+        $product = $order->product;
+      //  dd($product->stores->name);
+       $user->notify(new OrderConfirmed($product));
+
+
         session()->flash("success","Order Confirmed Successfully");
         return redirect()->back();
     }

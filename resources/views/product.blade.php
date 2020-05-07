@@ -1,6 +1,9 @@
 
 @extends("layouts.base")
+@section("title")
 
+    martSNP- {{isset($store_name) ? $store_name : "Store"}}
+@endsection
 
 @section("content")
     <div class="bg0 m-t-23 p-b-140">
@@ -24,6 +27,9 @@
 
                 </div>
             </div>
+
+           <div style="text-align: center;"> <h2>{{isset($store_name) ? $store_name : "Store"}}</h2></div>
+            <br>
     <div class="row isotope-grid">
 
         @if($products->count() > 0)

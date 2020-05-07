@@ -7,7 +7,7 @@
                 <img src="{{asset($product->single_image)}}" height="320px"  alt="IMG-PRODUCT">
 
                 @if($show_buy_btn)
-                <a href="{{route('storeProduct',$product->store_id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                <a href="{{route('storeProduct',$product->stores->slug)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
                     Open Store
                 </a>
 

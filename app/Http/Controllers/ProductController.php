@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         //
         return view("dashboard.product.index",[
-           'products'=>Product::where("user_id","=",Auth::user()->id)->get()
+           'products'=>Product::where("user_id","=",Auth::user()->id)->orderBy("id","DESC")->simplePaginate(12)
 
         ]);
     }
@@ -182,14 +182,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         //
 
+        $product = Product::withTrashed()->where("id",$id)->firstOrFail();
 
-        $product->delete();
+       // $product->tras
 
-        $product->deleteImage();
+        if(!$product->trashed())
+              $product->delete();
+        else{
+
+            $product->forceDelete();
+            $product->deleteImage();
+        }
+
+
 
         session()->flash('success', 'Product deleted successfully.');
 

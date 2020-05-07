@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string("account_type")->default("buyer");
             $table->string("phone");
             $table->string("address");
+          //  $table->softDeletes("deleted_at")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

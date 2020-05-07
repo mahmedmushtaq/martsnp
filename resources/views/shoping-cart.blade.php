@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+
+    martSNP- cart
+@endsection
 
 @section("content")
 	<!-- Header -->

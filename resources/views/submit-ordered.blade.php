@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+
+    martSNP- submit order successfully
+@endsection
 
 @section("content")
 

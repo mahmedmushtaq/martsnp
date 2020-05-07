@@ -24,7 +24,9 @@ class CreateProductsTable extends Migration
             $table->text("images");
             $table->string("single_image");
             $table->string("product_size");
+
             $table->integer("rating")->default(0);
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }

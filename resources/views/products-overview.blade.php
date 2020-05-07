@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+
+    martSNP- All Products
+@endsection
 @section("content")
     <div class="bg0 m-t-23 p-b-140">
         <div class="container">

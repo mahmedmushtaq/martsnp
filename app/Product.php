@@ -6,13 +6,15 @@ namespace App;
 
 
 
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class Product extends Model
 {
     //
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     public function deleteImage(){
         foreach(explode(",",$this->images) as $image){
@@ -30,6 +32,10 @@ class Product extends Model
 
     public function order(){
         return $this->hasMany(Order::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 

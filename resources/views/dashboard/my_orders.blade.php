@@ -17,12 +17,13 @@
                 <table class="table v-middle">
                     <thead>
                     <tr class="bg-light">
+                        <th class="border-top-0">Product Details</th>
                         <th class="border-top-0">Ordered By</th>
                         <th class="border-top-0">Email</th>
                         <th class="border-top-0">Phone</th>
                         <th class="border-top-0">Product Name</th>
                         <th class="border-top-0">Image</th>
-                        <th class="border-top-0">price</th>
+                        <th class="border-top-0">Total price</th>
                         <th class="border-top-0">Quantity</th>
                         <th class="border-top-0">Store</th>
                         <th class="border-top-0">Confirmed</th>
@@ -32,17 +33,18 @@
                     <tbody>
                     @foreach($orders as $order)
                         <tr>
+                            <td><a href="{{route("productdetails",$order->product->id)}}" class="btn btn-xs btn-success">Check</a></td>
                             <td>{{$order->user->name}}</td>
                             <td>{{$order->user->email}}</td>
                             <td>{{$order->user->phone}}</td>
                             <td>{{$order->product->product_name}}</td>
                             <td><img width="40px" height="40px" src="{{asset($order->product->single_image)}}" alt=""></td>
-                            <td>Rs {{$order->price}}</td>
+                            <td>Rs {{$order->price * $order->quantity}}</td>
                             <td>{{$order->quantity}}</td>
                             <td>{{$order->store->name}}</td>
                             <td>
                                 @if($order->confirmed === 'yes')
-                                 {{$order->confirmed}}
+                                    {{$order->confirmed}}
                                 @else
                                     <form action="{{route('orders.confirmed',$order->id)}}" method="POST">
                                         @csrf
@@ -66,5 +68,6 @@
             </div>
 
         </div>
+    </div>
 
 @endsection

@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+
+    martSNP- {{isset($product) ? $product->product_name : "Product Details"}}
+@endsection
 @section("content")
 
 

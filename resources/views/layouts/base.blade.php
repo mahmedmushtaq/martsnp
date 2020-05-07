@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>@yield("title")</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free online store, add unlimited products, free store optimization, get store without design experience, free coupons, delivery in 1-2 days">
+    <meta name="author" content="martSNP">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}"/>
     <!--===============================================================================================-->
@@ -96,9 +98,9 @@
                     </div>
 
                     <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
-                        </button>
+                        <a  href="{{route("register")}}" class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                            Register
+                        </a>
                     </div>
                 </form>
             </div>

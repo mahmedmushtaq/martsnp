@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+
+    martSNP- search result
+@endsection
 
 @section("content")
 

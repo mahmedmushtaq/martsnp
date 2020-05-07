@@ -16,6 +16,7 @@ class CreateSellersTable extends Migration
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
             $table->dateTime('subscription');
+            $table->integer('end_limit')->default(7);
             $table->integer("user_id");
             $table->timestamps();
         });

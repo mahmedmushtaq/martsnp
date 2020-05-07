@@ -37,6 +37,7 @@
                         <tr class="bg-light">
                             <th class="border-top-0">Name</th>
                             <th class="border-top-0">Category</th>
+                            <th class="border-top-0">Open</th>
                             <th class="border-top-0">Edit</th>
                             <th class="border-top-0">Delete</th>
                         </tr>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td>{{$product->product_name}}</td>
                                 <td>{{$product->category_name === 'both' ? "Both male and female" : $product->category_name }}</td>
+                                <td><a href="{{route('productdetails',$product->id)}}" class="btn xs btn-success">Open</a></td>
                                 <td><a href="{{route('products.edit',$product->id)}}" class="btn btn-small btn-default">Edit</a></td>
                                 <td><form action="{{route('products.destroy',$product->id)}}" method="POST" >
                                         @method("DELETE")
@@ -59,6 +61,8 @@
 
                         </tbody>
                     </table>
+
+                    {{$products->links()}}
                 </div>
             </div>
         </div>

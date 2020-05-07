@@ -20,9 +20,10 @@ class CreateStoresTable extends Migration
             $table->integer("user_id");
             $table->string("store_type");
             $table->string("store_image");
+
             $table->integer("total_products")->default(0);
 
-            $table->softDeletes();
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }

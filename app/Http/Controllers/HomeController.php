@@ -18,6 +18,7 @@ class HomeController extends Controller
     public function __construct()
     {
 //        $this->middleware('auth');
+      //  $this->middleware('auth')->only(['edit']);
     }
 
     /**
@@ -28,29 +29,37 @@ class HomeController extends Controller
     public function index()
     {
 
+//        front page
 
-      $products = DB::table("products")->simplePaginate(12);
+      $products = Product::orderBy("id","DESC")->simplePaginate(8);
 
 
 
         return view('index',[
-            'stores'=>DB::table("stores")->simplePaginate(12),
+            'stores'=>DB::table("stores")->orderBy("id","DESC")->simplePaginate(8),
              'products'=>$products,
             "cartData"=>ShoppingCart::all(),
         ]);
     }
 
-    public function storeProduct(Store $store){
-        $products = $store->products()->simplePaginate(12);
+    public function storeProduct($slug){
+
+     //   dd($slug);
+        $store = Store::where("slug","=",$slug)->firstOrFail();
+
+        $products = $store->products()->orderBy("id","DESC")->simplePaginate(8);
 
         return view ('product',[
+            'store_name'=>$store->name,
             'products'=>$products,
             "cartData"=>ShoppingCart::all(),
         ]);
     }
 
     public function productsOverview(){
-        $products = DB::table("products")->simplePaginate(50);
+
+//        products page
+        $products = Product::orderBy("id","DESC")->simplePaginate(30);
        return view('products-overview',[
 
             'products'=>$products,
@@ -60,9 +69,11 @@ class HomeController extends Controller
 
     public function storesOverview(){
 
+
+
         return view('stores-overview',[
 
-            'stores'=>DB::table("stores")->simplePaginate(50),
+            'stores'=>DB::table("stores")->orderBy("id","DESC")->simplePaginate(30),
             "cartData"=>ShoppingCart::all(),
         ]);
     }
@@ -86,12 +97,17 @@ class HomeController extends Controller
         if(!empty($search_products)){
 
 
-            $products = DB::table("products")
-                ->where("product_name",'LIKE','%'.$search_products.'%')
+//            $products = DB::table("products")
+//                ->where("product_name",'LIKE','%'.$search_products.'%')
+//                ->orWhere("price",'LIKE','%'.$search_products.'%')
+//                ->orWhere("product_size",'LIKE','%'.$search_products.'%')
+//                ->simplePaginate(12);
+
+            $products = Product::where("product_name",'LIKE','%'.$search_products.'%')
                 ->orWhere("price",'LIKE','%'.$search_products.'%')
                 ->orWhere("product_size",'LIKE','%'.$search_products.'%')
-                ->simplePaginate(12);
-
+                ->orderBy("id","DESC")
+                ->simplePaginate(8);
 
 
             return view("search",[
@@ -100,7 +116,7 @@ class HomeController extends Controller
                 "cartData"=>ShoppingCart::all(),
             ]);
         }else if(!empty($search_store)){
-           $stores = Store::where("name",'LIKE','%'.$search_store.'%')->simplePaginate(12);
+           $stores = Store::where("name",'LIKE','%'.$search_store.'%')->orderBy("id","DESC")->simplePaginate(8);
 
            return view("search",[
                'stores'=>$stores,

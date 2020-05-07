@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Seller;
 use App\Store;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -23,9 +25,20 @@ class StoreController extends Controller
      */
     public function index()
     {
+        $stores = Store::where("user_id","=",Auth::user()->id)->orderBy("id","DESC")->orderBy("id","DESC")->get();
+
+//        foreach ($stores as $store){
+
+//           dd("Now date ".$currentDate. " server date ".$serverDate." diff ".$diff. " remaining ".$remaining);
+//        }
+
+
+
 
         return view('dashboard.store.index',[
-            'stores'=>Store::where("user_id","=",Auth::user()->id)->get()
+             'stores'=>$stores,
+            'current_time'=>Carbon::parse(Carbon::now()),
+
         ]);
     }
 
@@ -60,9 +73,12 @@ class StoreController extends Controller
         $store_image->move('uploads/stores/', $new_name);
         $store_image_path =  "uploads/stores/".$new_name;
 
+        $no = rand(1,999);
+        $slug = $request->name.'-'.$no;
+
         Store::create([
             'name'=>$request->name,
-            'slug'=>Str::slug($request->name),
+            'slug'=>Str::slug($slug),
             'store_image'=>$store_image_path,
             'user_id'=>Auth::user()->id,
             'store_type'=>$request->store_type

@@ -1,4 +1,8 @@
 @extends("layouts.base")
+@section("title")
+    martSNP- Get free online store| Sell And Buy
+@endsection
+
 @section("content")
     <!-- Product -->
     <!-- ================================ Slider ==========================  -->
