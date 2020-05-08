@@ -25,12 +25,15 @@
                         </li>
 
 
+
+
+
+
                         @auth
                             <li>
                             <a href="{{ url('/dashboard') }}">Dashboard</a>
                             </li>
                             <li>
-                                <div class="dropdown-item">
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -41,7 +44,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
+
                             </li>
 
                         @else
@@ -55,6 +58,12 @@
                                 </li>
 
                         @endauth
+
+                        <li >
+                            <a href="{{route('stores.index')}}" class="flex-c-m text-white stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                                Create a store
+                            </a>
+                        </li>
 
 
 
@@ -137,12 +146,14 @@
                 <a  href="{{route('storesoverview')}}">Stores</a>
             </li>
 
+
+
             @auth
                 <li>
                     <a href="{{ url('/dashboard') }}">Dashboard</a>
                 </li>
                 <li>
-                    <div class="dropdown-item">
+
 
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -153,7 +164,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                    </div>
+
                 </li>
 
             @else
@@ -168,6 +179,12 @@
 
             @endauth
 
+
+            <li >
+                <a href="{{route('stores.index')}}" class="flex-c-m text-white stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                    Create a store
+                </a>
+            </li>
 
 
 

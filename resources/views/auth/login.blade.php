@@ -63,6 +63,12 @@
                                     </a>
                                 @endif
                             </div>
+
+
+
+
+
+                            <div    class="ml-auto mr-auto mt-3  text-success"><a href="{{route('register')}}" class="btn btn-sm btn-success">Require A New One</a></div>
                         </div>
                     </form>
                 </div>
