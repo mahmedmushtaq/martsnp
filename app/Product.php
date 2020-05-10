@@ -24,7 +24,7 @@ class Product extends Model
         return true;
 
     }
-    public function stores(){
+    public function store(){
        // return $this->belongsToMany(Store::class);
       return  $this->belongsTo('App\Store',"store_id","id");
 

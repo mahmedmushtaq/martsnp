@@ -12,97 +12,148 @@
     {{-- ================================ Banner =============================--}}
     @include("components.banner")
 
-    <section class="sec-product bg0 p-t-100 p-b-50">
+    <section class="sec-product bg0 p-t-20 p-b-50">
         <div class="container">
-            <div class="p-b-32">
-                <h3 class="ltext-105 cl5 txt-center respon1">
-                    Store Overview
-                </h3>
-            </div>
-
-            <!-- Tab01 -->
-            <div class="tab01">
-                <!-- Nav tabs -->
 
 
-                <!-- Tab panes -->
-                <div class="tab-content p-t-50">
-                    <!-- - -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
-                        <!-- Slide2 -->
-                        <div class="row isotope-grid">
+            <!-- ======= Services Section ======= -->
+            <section id="services" class="services">
+                <div class="container">
 
 
 
 
 
+                    <div class="row d-flex ">
 
-                           @include("partials.store_item")
+                        @foreach($store_types as $type)
+
+                        <a href="{{route('specific-stores',$type->slug)}}" class="col-lg-4 btn-style col-md-6 d-flex align-items-stretch m-tb--5 p-b-100 align-self-center ">
+                           <div class="image-container m-l-auto m-r-auto" style='font-family: "Nunito", sans-serif;'>
+                               <img  src="{{asset($type->image)}}" width="250px" height="250px" alt="">
+
+                               <div style="text-align:center;  font-family: Poppins-Medium; color:black; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">{{$type->store_type}}</div>
+
+                           </div>
+
+                        </a>
+                        @endforeach
 
 
 
 
 
 
-                        </div>
+
+
+
+{{--                        <a href="{{route('specific-stores','')}}"  class="col-lg-4 btn-style col-md-6 d-flex align-items-stretch p-b-100">--}}
+{{--                            <div class="image-container m-l-auto m-r-auto">--}}
+{{--                                <img src="{{asset('assets/images/btn-2.png')}}" width="250px" height="250px" alt="">--}}
+{{--                                <div style="text-align:center;font-family: Poppins-Medium; color:black; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">Stylish Watch Stores</div>--}}
+
+{{--                            </div>--}}
+{{--                        </a>--}}
+
+
+
+{{--                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-b-100 mt-4 mt-md-0">--}}
+{{--                            <div class="image-container m-l-auto m-r-auto">--}}
+{{--                                <img src="{{asset('assets/images/btn-3.png')}}" width="250px" height="250px" alt="">--}}
+{{--                                <div style="text-align:center;font-family: Poppins-Medium; color:black; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">Shoes Stores</div>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+
+
+{{--                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-b-100 mt-4 mt-md-0">--}}
+{{--                            <div class="image-container m-l-auto m-r-auto">--}}
+{{--                                <img src="{{asset('assets/images/btn-4.png')}}" width="250px" height="250px" alt="">--}}
+{{--                                <div style="text-align:center;font-family: Poppins-Medium; color:black; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">Child Garments</div>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+
+
+{{--                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch p-b-100 mt-4 mt-md-0">--}}
+{{--                            <div class="image-container m-l-auto m-r-auto">--}}
+{{--                                <img src="{{asset('assets/images/btn-5.png')}}" width="250px" height="250px" alt="">--}}
+{{--                                <div style="text-align:center; color:black;font-family: Poppins-Medium; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">Men garments</div>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+
+
+
+
+
+{{--                            <div class="col-lg-4 col-md-6  mt-4 mt-md-0 align-items-stretch p-b-100   d-flex ">--}}
+{{--                                <div class="image-container m-l-auto m-r-auto ">--}}
+{{--                                    <img src="{{asset('assets/images/btn-6.png')}}" width="250px" height="250px" alt="">--}}
+{{--                                    <div style="text-align:center;font-family: Poppins-Medium; color:black; box-shadow: 0 0px 1px 1px rgba(211,211,211,.55); padding:20px;">Ladies Garments</div>--}}
+
+
+{{--                                </div>--}}
+
+
+{{--                        </div>--}}
+
+
+
+
+
+
                     </div>
-                </div>
 
-                {{$stores->links()}}
-            </div>
+
+                </div>
+            </section>
+
+
+
+            <div>
+
+{{--            <!-- Tab01 -->--}}
+{{--            <div class="tab01">--}}
+{{--                <!-- Nav tabs -->--}}
+
+
+{{--                <!-- Tab panes -->--}}
+{{--                <div class="tab-content p-t-50">--}}
+{{--                    <!-- - -->--}}
+{{--                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">--}}
+{{--                        <!-- Slide2 -->--}}
+{{--                        <div class="row isotope-grid">--}}
+
+
+
+
+
+
+{{--                     @include("partials.store_item")--}}
+
+
+
+
+
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                {{$stores->links()}}--}}
+{{--            </div>--}}
 
 
 
 
 {{--            ========== tab 02 =================--}}
 
-            <br><br>
-            <div class="p-b-32">
-                <h3 class="ltext-105 cl5 txt-center respon1">
-                    Products Overview
-                </h3>
+
             </div>
-        <!-- Tab01 -->
-            <div class="tab01">
-                <!-- Nav tabs -->
-
-
-                <!-- Tab panes -->
-                <div class="tab-content p-t-50">
-                    <!-- - -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
-                        <!-- Slide2 -->
-
-                        <div class="row  isotope-grid ml-auto mr-auto" >
-
-
-
-
-
-
-                                             <span style="visibility: hidden;">
-{{--                       show buy btn mean user not in the stores page--}}
-                                                 {{$show_buy_btn = true}}
-                            </span>
-
-
-
-                            @include("partials.product_item")
-
-
-
-
-
-
-                        </div>
-
-
-                        </div>
-                    </div>
-
-                {{$products->links()}}
-            </div>
-
 
 
 
@@ -111,3 +162,14 @@
         </div>
     </section>
 @endsection
+
+@section("css")
+    <style>
+        .btn-style{
+            cursor: pointer;
+        }
+    </style>
+@endsection
+
+
+

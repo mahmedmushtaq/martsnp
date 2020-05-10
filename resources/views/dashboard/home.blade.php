@@ -8,19 +8,29 @@
         <div class="card-body">
 
 
-            <div class="text-center font-12 text-default">
-                <h6>Contact owner for subscription</h6>
-                <p>Free Seller Account For 7 Days</p>
-                <p><span class="text-danger">Name :</span>
-                    <span class="text-success">M Ahmed Mushtaq</span>
-                    <span class="text-danger">Contact/whatsapp :</span>
-                    <span class="text-success">03316062251</span>
-                    <span class="text-danger"> Email:</span>
-                    <span class="text-success">ahmedmushtaq296@gmail.com</span>
-                    <span class="text-danger">Import message:</span>
-                    <span class="text-success"> If notifications are not visible in the inbox then please check your spam</span>
-                    <span class="text-danger"> Thanks!</span></p>
-            </div>
+{{--            <div class="text-center font-12 text-default">--}}
+{{--                <h6>Contact owner for subscription</h6>--}}
+{{--                <p>Free Seller Account For 7 Days</p>--}}
+
+{{--                <p><span class="text-danger">Name :</span>--}}
+{{--                    <span class="text-success">M Ahmed Mushtaq</span>--}}
+{{--                    <span class="text-danger">Contact/whatsapp :</span>--}}
+{{--                    <span class="text-success">03316062251</span>--}}
+{{--                    <span class="text-danger"> Email:</span>--}}
+{{--                    <span class="text-success">ahmedmushtaq296@gmail.com</span>--}}
+{{--                    <span class="text-danger">Import message:</span>--}}
+{{--                    <span class="text-success"> If notifications are not visible in the inbox then please check your spam</span>--}}
+{{--                    <span class="text-danger"> Thanks!</span></p>--}}
+{{--            </div>--}}
+
+{{--            <div class="text-center">--}}
+{{--                <h6>--}}
+{{--                    Remaining Days--}}
+{{--                </h6>--}}
+{{--                <p>{{auth()->user()->remainingSubscription()}}</p>--}}
+
+
+{{--            </div>--}}
 
 
 
@@ -39,6 +49,10 @@
             </a>
 
 
+
+
+
+
                 <a href="{{route("products.index")}}" class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
                     <div class="icon">
                         <img src="https://img.icons8.com/flat_round/128/000000/add-tag--v1.png"/>
@@ -55,6 +69,13 @@
                     <h5   class="text-success">New Orders</h5>
 
                 </a>
+                    <a href="{{route('subscription.index')}}"  class="shadow-sm p-3 m-10 bg-white rounded text-center font-24 " style="cursor:pointer;">
+                        <div class="icon">
+                            <img src="https://img.icons8.com/cotton/128/000000/mobile-payment--v3.png"/>
+                        </div>
+                        <h5 href="{{route("stores.index")}}" class="text-success">Subscription</h5>
+
+                    </a>
 
 
 

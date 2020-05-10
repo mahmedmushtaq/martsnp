@@ -21,7 +21,7 @@
 
                     <span class="stext-105 cl3">
 {{--												store type here--}}
-                        {{$store->store_type}}
+                        {{str_replace("_"," ",$store->store_type)}}
 												</span>
                 </div>
 

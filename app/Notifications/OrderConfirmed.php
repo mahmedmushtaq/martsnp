@@ -48,7 +48,7 @@ class OrderConfirmed extends Notification
                     ->line("Product Name ".$this->product->product_name)
                     ->line('Store name '.$this->product->stores->name)
                     ->action("Do you want to check the details of the product which you buy? Click here"
-                        ,url("/product/".$this->product->id."/details"))
+                        ,url("/product/details/".$this->product->slug))
                     ->line('Thank you for using our application!');
     }
 

@@ -21,7 +21,13 @@
 
                     <div class="form-group">
                         <label for="">Store Type <small>(e.g Store for men's or women's clothes,electronics or others)</small></label>
-                        <input type="text" class="form-control" placeholder="Store Type" name="store_type" value="{{isset($store)? $store->store_type : ""}}">
+{{--                        <input type="text" class="form-control" placeholder="Store Type" name="store_type" value="{{isset($store)? $store->store_type : ""}}">--}}
+                        <select name="store_type" id="" class="form-control">
+                          @foreach($store_types as $type)
+                    <option value="{{$type->slug}}"@if(isset($store)){{$store->store_type === $type->slug ? 'selected' : ""}}@endif>{{$type->store_type}}</option>
+
+                              @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">

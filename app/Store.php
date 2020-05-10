@@ -60,13 +60,13 @@ class Store extends Model
             }else if($remaining === 1){
                 return $remaining. " day remaining";
             }else if($remaining === -1){
-                $owner->notify(new SubscriptionEndedNotification($this,$msgLinesArrayForOwner));
-                $this->user->notify(new SubscriptionEndedNotification($owner,$msgLinesArray));
+            //    $owner->notify(new SubscriptionEndedNotification($this,$msgLinesArrayForOwner));
+             //   $this->user->notify(new SubscriptionEndedNotification($owner,$msgLinesArray));
 
                return ($remaining * -1). " day exceed";
             }else if($remaining < -1){
-                $owner->notify(new SubscriptionEndedNotification($this,$msgLinesArrayForOwner));
-                $this->user->notify(new SubscriptionEndedNotification($owner,$msgLinesArray));
+            //    $owner->notify(new SubscriptionEndedNotification($this,$msgLinesArrayForOwner));
+             //   $this->user->notify(new SubscriptionEndedNotification($owner,$msgLinesArray));
                 return ($remaining * -1). " days exceed";
 
             }else{

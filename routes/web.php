@@ -16,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', "HomeController@index")->name("home");
-Route::get('store/{store}', "HomeController@storeProduct")->name("storeProduct");
+
+Route::get('store/{store}', "Store\FrontStoreController@storeProduct")->name("storeProduct");
+Route::get("stores-overview","Store\FrontStoreController@storesOverview")->name("storesoverview");
+Route::get("specific-stores/{store}","Store\FrontStoreController@showSpecificStore")->name("specific-stores");
+
+
 Route::get("products-overview","HomeController@productsOverview")->name("productsoverview");
-Route::get("stores-overview","HomeController@storesOverview")->name("storesoverview");
-Route::get("product/{product}/details","HomeController@productDetails")->name("productdetails");
+
+Route::get("product/details/{product}","HomeController@productDetails")->name("productdetails");
+
 Route::get("search","HomeController@search");
 
 
@@ -48,8 +54,9 @@ Route::group(['prefix'=>'dashboard','middleware'=>['auth']],function(){
 
 
     Route::middleware(['seller'])->group(function(){
-        Route::resource("stores","StoreController");
+        Route::resource("stores","Store\StoreController");
         Route::resource("products","ProductController");
+        Route::resource("subscription","SubscriptionController");
         Route::get("my-orders","OrderController@myorders")->name("orders.myorders");
         Route::put("confirmed-orders/{order}","OrderController@confirmedOrder")->name("orders.confirmed");
     });

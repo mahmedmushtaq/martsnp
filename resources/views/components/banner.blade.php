@@ -1,79 +1,11 @@
-<!-- Banner -->
-<div class="sec-banner bg0">
-    <div class="flex-w flex-c-m">
-        <div class="size-202 m-lr-auto respon4">
-            <!-- Block1 -->
-            <div class="block1 wrap-pic-w">
-                <img src="{{asset('assets/images/banner-04.jpg')}}" alt="IMG-BANNER">
+<div class="p-b-32 m-t-60">
+    <h3 class="ltext-105 cl5 txt-center respon1">
+        STORES
 
-                <a href="{{route("productsoverview")}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                    <div class="block1-txt-child1 flex-col-l">
-							<span class="block1-name ltext-102 trans-04 p-b-8">
-								Women
-							</span>
+    </h3>
 
-                        <span class="block1-info stext-102 trans-04">
-								Summer 2020
-							</span>
-                    </div>
-
-                    <div class="block1-txt-child2 p-b-4 trans-05">
-                        <div class="block1-link stext-101 cl0 trans-09">
-                            Shop Now
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="size-202 m-lr-auto respon4">
-            <!-- Block1 -->
-            <div class="block1 wrap-pic-w">
-                <img src="{{asset('assets/images/banner-05.jpg')}}" alt="IMG-BANNER">
-
-                <a href="{{route("productsoverview")}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                    <div class="block1-txt-child1 flex-col-l">
-							<span class="block1-name ltext-102 trans-04 p-b-8">
-								Men
-							</span>
-
-                        <span class="block1-info stext-102 trans-04">
-								Summer 2020
-							</span>
-                    </div>
-
-                    <div class="block1-txt-child2 p-b-4 trans-05">
-                        <div class="block1-link stext-101 cl0 trans-09">
-                            Shop Now
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="size-202 m-lr-auto respon4">
-            <!-- Block1 -->
-            <div class="block1 wrap-pic-w">
-                <img src="{{asset('assets/images/banner-06.jpg')}}" alt="IMG-BANNER">
-
-                <a href="{{route("productsoverview")}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-                    <div class="block1-txt-child1 flex-col-l">
-							<span class="block1-name ltext-102 trans-04 p-b-8">
-								Other Accessories
-							</span>
-
-                        <span class="block1-info stext-102 trans-04">
-								New Trend
-							</span>
-                    </div>
-
-                    <div class="block1-txt-child2 p-b-4 trans-05">
-                        <div class="block1-link stext-101 cl0 trans-09">
-                            Shop Now
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+    <div  style="height:30px;width:200px;color:black; margin-left: auto;margin-right: auto;">
+        <hr>
     </div>
 </div>
+

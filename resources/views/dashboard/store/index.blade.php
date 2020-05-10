@@ -48,17 +48,19 @@
                             <th class="border-top-0">Total_products</th>
                             <th class="border-top-0">Open</th>
                             <th class="border-top-0">Edit</th>
-                            <th class="border-top-0">Delete</th>
+{{--                            <th class="border-top-0">Delete</th>--}}
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($stores as $store)
 
+{{--                            {{$store}}--}}
 
 
 
                             <tr>
                                 <td>{{$store->name}}</td>
+
                                 <td>{{$store->seller()->end_limit}} days</td>
 {{--                                seller is indirect relation with store, seller is simply a function not a relation--}}
 
@@ -66,12 +68,12 @@
                                 <td>{{$store->remainingSubscription()}}</td>
 
                                 <td><img src="{{asset($store->store_image)}}" alt="" height="40px" width="40px"></td>
-                                <td>{{$store->store_type}}</td>
+                                <td>{{str_replace("-"," ",$store->store_type)}}</td>
                                 <td>{{$store->products->count()}}</td>
                                 <td><a href="{{route('storeProduct',$store->slug)}}" class="btn btn-xs btn-success">Open</a></td>
 
-                                <td><a href="{{route('stores.edit',$store->id)}}" class="btn btn-small btn-default">Edit</a></td>
-                                <td>Not available yet</td>
+                                <td><a href="{{route('stores.edit',$store->id)}}" class="btn btn-xs btn-default">Edit</a></td>
+{{--                                <td>Not available yet</td>--}}
                             </tr>
                         @endforeach
 

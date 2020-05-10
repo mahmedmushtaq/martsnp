@@ -13,9 +13,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
     <title>martSNP- Get free online store| Sell And Buy </title>
     <!-- Custom CSS -->
-    <link href="{{asset('assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+{{--    <link href="{{asset('assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">--}}
     <!-- Custom CSS -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
     <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -198,6 +199,7 @@
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("stores.index")}}" aria-expanded="false"><img src="https://img.icons8.com/dusk/24/000000/online-store.png" style="margin-right: 2px;"/><span class="hide-menu">Store</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("products.index")}}" aria-expanded="false"><img src="https://img.icons8.com/flat_round/24/000000/add-tag--v1.png" style="margin-right: 2px;"/><span class="hide-menu">Products</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><img src="https://img.icons8.com/nolan/24/order-history.png" style="margin-right: 2px;"/><span class="hide-menu">Orders</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><img src="https://img.icons8.com/cotton/24/000000/mobile-payment--v3.png"/><span class="hide-menu">Subscription</span></a></li>
                     @else
                         <li class="sidebar-item">
                         <form action="{{route('seller.store')}}" method="POST">
@@ -239,10 +241,7 @@
                     <h4 class="page-title">Dashboard</h4>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Library</li>
-                            </ol>
+
                         </nav>
                     </div>
                 </div>
@@ -327,15 +326,15 @@
 <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/app-style-switcher.js')}}"></script>
 <!--Wave Effects -->
-<script src="{{asset('assets/js/waves.js')}}"></script>
+{{--<script src="{{asset('assets/js/waves.js')}}"></script>--}}
 <!--Menu sidebar -->
 <script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
 <!--Custom JavaScript -->
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <!--This page JavaScript -->
 <!--chartis chart-->
-<script src="{{asset('assets/libs/chartist/dist/chartist.min.js')}}"></script>
-<script src="{{asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
+{{--<script src="{{asset('assets/libs/chartist/dist/chartist.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>--}}
 <script src="{{asset('assets/js/pages/dashboards/dashboard1.js')}}"></script>
 {{--<script src="{{asset("js/app.js")}}"></script>--}}
 <script src="{{ asset('js/toastr.min.js') }}"></script>

@@ -7,6 +7,8 @@ use App\Product;
 use App\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class ProductController extends Controller
 {
@@ -74,8 +76,12 @@ class ProductController extends Controller
 
         }
 
+        $no = rand(1,999);
+        $slug = $request->product_name.'-'.$no;
+
         Product::create([
-              'product_name'=>$request->product_name,
+            'product_name'=>$request->product_name,
+            'slug'=>Str::slug($slug),
             'user_id'=>Auth::user()->id,
             'store_id'=>$request->store_id,
             'category_name'=>$request->category_name,
@@ -87,6 +93,11 @@ class ProductController extends Controller
 
 
         ]);
+
+        $store = Store::find($request->store_id);
+        $store->total_products  = $store->total_products+1;
+        $store->save();
+
         session()->flash("success","Product added successfully");
         return redirect()->back();
 
@@ -158,10 +169,31 @@ class ProductController extends Controller
             }
 
 
+
+
+
+
+
+
             $data['images'] = $images_path;
             $data['single_image'] = $singleImage;
 
         }
+
+        $no = rand(1,999);
+        $slug = $request->product_name.'-'.$no;
+        $data['slug'] = Str::slug($slug);
+
+        $new_store_id = Store::find($request->store_id);
+        if($product->store->id !== $new_store_id){
+            $prev_store = Store::find($product->store->id);
+            $prev_store->total_products += -1;
+
+            $new_store_id->total_products +=1;
+            $prev_store->save();
+            $new_store_id->save();
+        }
+
 
         $product->update($data);
 

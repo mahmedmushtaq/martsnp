@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Store;
+use App\StoreType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use ShoppingCart;
@@ -36,30 +37,19 @@ class HomeController extends Controller
 
 
         return view('index',[
-            'stores'=>DB::table("stores")->orderBy("id","DESC")->simplePaginate(8),
-             'products'=>$products,
-            "cartData"=>ShoppingCart::all(),
+          "cartData"=>ShoppingCart::all(),
+          "store_types"=>StoreType::all(),
         ]);
     }
 
-    public function storeProduct($slug){
 
-     //   dd($slug);
-        $store = Store::where("slug","=",$slug)->firstOrFail();
-
-        $products = $store->products()->orderBy("id","DESC")->simplePaginate(8);
-
-        return view ('product',[
-            'store_name'=>$store->name,
-            'products'=>$products,
-            "cartData"=>ShoppingCart::all(),
-        ]);
-    }
 
     public function productsOverview(){
 
 //        products page
         $products = Product::orderBy("id","DESC")->simplePaginate(30);
+
+
        return view('products-overview',[
 
             'products'=>$products,
@@ -67,18 +57,12 @@ class HomeController extends Controller
         ]);
     }
 
-    public function storesOverview(){
 
 
+    public function productDetails($slug){
+        $product = Product::where("slug",$slug)->firstOrFail();
 
-        return view('stores-overview',[
 
-            'stores'=>DB::table("stores")->orderBy("id","DESC")->simplePaginate(30),
-            "cartData"=>ShoppingCart::all(),
-        ]);
-    }
-
-    public function productDetails(Product $product){
         return view("product-detail",[
             "product"=>$product,
             "cartData"=>ShoppingCart::all(),

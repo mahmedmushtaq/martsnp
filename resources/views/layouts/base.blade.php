@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free online store, add unlimited products, free store optimization, get store without design experience, free coupons, delivery in 1-2 days">
     <meta name="author" content="martSNP">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}"/>
     <!--===============================================================================================-->
@@ -18,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/linearicons-v1.0.0/icon-font.min.css')}}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/animate/animate.css')}}">
+
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/css-hamburgers/hamburgers.min.css')}}">
     <!--===============================================================================================-->
@@ -35,9 +38,14 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/main.css')}}">
+
+
+    @yield("css")
     <!--===============================================================================================-->
 </head>
 <body class="animsition">
+
+
 
 <!-- Header -->
 @include("components.header")
@@ -54,6 +62,7 @@
 
 
 @yield("content")
+
 
 
 
