@@ -45,6 +45,8 @@
 
 
 
+
+
          @else
             <div>No content is found</div>
         @endif
@@ -61,8 +63,14 @@
 
 
     </div>
+            <div class='m-l-auto m-r-auto text-center m-l-10'>
+                @if($products->count() > 0)
+                    {{$products->links()}}
+                @endif
+            </div>
         </div>
 
+       
 
 
     </div>

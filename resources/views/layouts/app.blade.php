@@ -193,25 +193,25 @@
 
                     <li class="p-15 m-t-10"> <a href="{{route('stores.create')}}" class="btn btn-block create-btn text-white no-block d-flex align-items-center"><i class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">Create New</span> </a></li>
                     <!-- User Profile-->
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route('dashboardhome')}}" aria-expanded="false"><img style="margin-right:2px;" src="https://img.icons8.com/flat_round/24/000000/home--v1.png"/><span class="hide-menu text-danger">Home</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route('dashboardhome')}}" aria-expanded="false"><span class="hide-menu text-danger">Home</span></a></li>
 
                     @if(auth()->user()->account_type === 'seller')
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("stores.index")}}" aria-expanded="false"><img src="https://img.icons8.com/dusk/24/000000/online-store.png" style="margin-right: 2px;"/><span class="hide-menu">Store</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("products.index")}}" aria-expanded="false"><img src="https://img.icons8.com/flat_round/24/000000/add-tag--v1.png" style="margin-right: 2px;"/><span class="hide-menu">Products</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><img src="https://img.icons8.com/nolan/24/order-history.png" style="margin-right: 2px;"/><span class="hide-menu">Orders</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><img src="https://img.icons8.com/cotton/24/000000/mobile-payment--v3.png"/><span class="hide-menu">Subscription</span></a></li>
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("stores.index")}}" aria-expanded="false"><span class="hide-menu">Store</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("products.index")}}" aria-expanded="false"><span class="hide-menu">Products</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><span class="hide-menu">Orders</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.myorders")}}" aria-expanded="false"><span class="hide-menu">Subscription</span></a></li>
                     @else
                         <li class="sidebar-item">
                         <form action="{{route('seller.store')}}" method="POST">
                             @csrf
-                          <button type="submit" style="background: transparent;border: none;display: flex;margin-left: 9px;" class="sidebar-link waves-effect waves-dark sidebar-link d-flex"    aria-expanded="false"><img src="https://img.icons8.com/color/24/000000/reseller.png" />
+                          <button type="submit" style="background: transparent;border: none;display: flex;margin-left: 9px;" class="sidebar-link waves-effect waves-dark sidebar-link d-flex"    aria-expanded="false">
                                Seller</button>
                         </form>
                         </li>
                     @endif
 
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.index")}}" aria-expanded="false"><img src="https://img.icons8.com/dusk/24/000000/payment-history.png" style="margin-right: 2px;"/><span class="hide-menu">History</span></a></li>
-                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("home")}}" aria-expanded="false"><img src="https://img.icons8.com/dusk/24/000000/front-sorting.png" style="margin-right: 2px;"/><span class="hide-menu">Front</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("orders.index")}}" aria-expanded="false"><span class="hide-menu">History</span></a></li>
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" style="margin-left: 9px;" href="{{route("home")}}" aria-expanded="false"><span class="hide-menu">Front</span></a></li>
 
 
 

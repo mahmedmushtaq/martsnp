@@ -41,9 +41,9 @@
                          <td>{{auth()->user()->seller->end_limit}}</td>
                          <td>{{auth()->user()->remainingSubscription()}}</td>
                          <td>Contact Owner For Renewal</td>
-                         <td>M Ahmed Mushtaq, Zain Mushtaq</td>
-                         <td>0331-6062251 / 0305-4652360</td>
-                         <td>ahmedmushtaq296@gmail.com / xdzain461@gmail.com</td>
+                         <td>M Ahmed Mushtaq,Zain Mushtaq,Mahyar,Anas</td>
+                         <td>owner@martsnp.com</td>
+                         <td>owner@martsnp.com</td>
                      </tr>
                      </tbody>
                     </table>

@@ -52,7 +52,7 @@ class NewOrderNotification extends Notification
             ->subject("New Order Received")
                     ->line('New order placed.')
                     ->line("Product Name ".$this->product->product_name)
-                    ->line("Store Name ".$this->product->stores->name)
+
                     ->line("Customer Name: ".$loggedInUser->name."")
                     ->line("Customer Email: ".$loggedInUser->email."")
                     ->line("Customer Phone No: ".$loggedInUser->phone."")

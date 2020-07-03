@@ -35,7 +35,9 @@
                     <table class="table v-middle">
                         <thead>
                         <tr class="bg-light">
+                            <th class="border-top-0">Image</th>
                             <th class="border-top-0">Name</th>
+
                             <th class="border-top-0">Store Name</th>
                             <th class="border-top-0">Category</th>
                             <th class="border-top-0">Open</th>
@@ -46,6 +48,7 @@
                         <tbody>
                         @foreach($products as $product)
                             <tr>
+                                <td><img src="{{asset($product->single_image)}}" width="50px" height="50px" alt=""></td>
                                 <td>{{$product->product_name}}</td>
                                 <td>{{$product->store->name}}</td>
                                 <td>{{$product->category_name === 'both' ? "Both male and female" : $product->category_name }}</td>

@@ -33,7 +33,7 @@
                     <tbody>
                     @foreach($orders as $order)
                         <tr>
-                            <td><a href="{{route("productdetails",$order->product->id)}}" class="btn btn-xs btn-success">Check</a></td>
+                            <td><a href="{{route("productdetails",$order->product->slug)}}" class="btn btn-xs btn-success">Check</a></td>
                             <td>{{$order->user->name}}</td>
                             <td>{{$order->user->email}}</td>
                             <td>{{$order->user->phone}}</td>
