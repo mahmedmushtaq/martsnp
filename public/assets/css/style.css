@@ -33,6 +33,8 @@ File: scss
 @import url(icons/flag-icon-css/flag-icon.min.css);
 @import url(icons/material-design-iconic-font/css/materialdesignicons.min.css);
 @import url(icons/crypto-icons/cryptocoins.css);
+
+
 .search-box .app-search .form-control, .topbar .mega-dropdown .dropdown-menu {
   border-radius: 0px; }
 
